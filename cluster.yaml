@@ -10,23 +10,23 @@ vpc:
   clusterEndpoints:
     publicAccess: true
     privateAccess: true
-  id: "vpc-000000000"
-  cidr: "172.16.0.0/16"
-  securityGroup: "sg-054f321af5bcb8383"
+  id: "{{ vpc_id }}"
+  cidr: "{{ vpc_cidr_block }}"
+  securityGroup: "{{ eks_cluster_security_group_id }}"
   subnets:
     private:
-      us-east-1a: { id: subnet-00000000000 }
-      us-east-1b: { id: subnet-00000000000 }
+      us-east-1a: {{ private_subnets_a }}
+      us-east-1b: {{ private_subnets_b }}
     public:
-      us-east-1a: { id: subnet-00000000000 }
-      us-east-1b: { id: subnet-00000000000 }
+      us-east-1a: {{ public_subnets_a }}
+      us-east-1b: {{ public_subnets_b }}
 
 cloudWatch:
   clusterLogging:
     enableTypes: ["*"]
 
 iam:
-  serviceRoleARN: "arn:aws:iam::208329978497:role/eks-cluster"
+  serviceRoleARN: "{{ eks_cluster_aws_iam_role_arn }}"
   withOIDC: true # https://eksctl.io/usage/iamserviceaccounts/
 
   serviceAccounts:
