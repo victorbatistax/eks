@@ -1,7 +1,7 @@
 resource "aws_vpc_peering_connection" "peering_lab" {
-  peer_owner_id = "00000000"
-  peer_region   = "us-east-1"
-  peer_vpc_id   = "vpc-00000000"
+  peer_owner_id = var.account_id
+  peer_region   = var.peer_region
+  peer_vpc_id   = var.peer_vpc_id
   vpc_id        = aws_vpc.vpc_eks_lab.id
 
   tags = {

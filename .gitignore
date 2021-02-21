@@ -1,0 +1,4 @@
+backend.tf
+*.tfvars
+*.json
+/.terraform
