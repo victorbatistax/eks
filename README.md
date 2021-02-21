@@ -1,8 +1,7 @@
 # Laboratorio AWS EKS
 
-**Author:** [Daniel Resende](https://github.com/dresende88)
 
-O Laboratio surge na necessidade primaria de aprendizado e auxilio a comunidade.
+O Laboratório surge na necessidade primaria de aprendizado e auxílio a comunidade.
 
 ## Pré requisistos
 
@@ -13,9 +12,9 @@ O Laboratio surge na necessidade primaria de aprendizado e auxilio a comunidade.
     - [Kubernetes CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
     - [Python 3](https://www.python.org/downloads/)
 
-- Configurações Necessarias
+- Configurações Necessárias
     - [Credenciais AWS](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html)
-    - Criar um arquivo chamado **terraform.tfvars** contendo os valores das variaveis necessarias para a execuçao do terraform.
+    - Criar um arquivo chamado **terraform.tfvars** contendo os valores das variáveis necessárias para a execução do terraform.
 
             Exemplo: 
             
@@ -26,20 +25,20 @@ O Laboratio surge na necessidade primaria de aprendizado e auxilio a comunidade.
             peer_vpc_id = "vpc-0000000"
             peer_region = "us-east-2"
             
-    - Criar um arquivo [backend.tf](https://www.terraform.io/docs/language/settings/backends/s3.html) (opcional - caso não exista sera gerado um arquivo de controle na maquina de execução)
+    - Criar um arquivo [backend.tf](https://www.terraform.io/docs/language/settings/backends/s3.html) (opcional - caso não exista sera gerado um arquivo de controle na máquina de execução)
 
 ## Instalação das Bibliotecas Python
 - execute o comando   -> `pip3 install jinja2`
 
 ## Construção do ambiente inicial
 
-- Inicializão do terraform, nesse processo os modulos, providers são baixados e backend iniciado.
+- Inicialização do terraform, nesse processo os módulos, providers são baixados e backend iniciado.
 
     `terraform init` 
-- Verificação do Plano, fase onde é feito uma verificação previa antes da execução e provisionamento dos recursos. 
+- Verificação do Plano, fase onde é feito uma verificação prévia antes da execução e provisionamento dos recursos. 
 
     `terraform plan` _( -refresh=true util, mas opcional )_
-- Contrução do ambiente de forma efetiva, aqui iremos de fato aplicar o que foi planejado.
+- Construção do ambiente de forma efetiva, aqui iremos de fato aplicar o que foi planejado.
 
     `terraform apply` _( -auto-approve util, mas opcional )_
 
@@ -79,3 +78,6 @@ O Laboratio surge na necessidade primaria de aprendizado e auxilio a comunidade.
 - https://docs.aws.amazon.com/eks/latest/userguide/fargate.html
 
 - https://eksctl.io/usage/schema/
+
+
+**Idealizador:** [Daniel Resende](https://github.com/dresende88)
