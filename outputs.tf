@@ -74,3 +74,7 @@ output "eks_node_aws_iam_role_arn" {
 output "eks_node_aws_iam_instance_profile_arn" {
     value = concat(aws_iam_instance_profile.ProfileIAMRole.*.arn, [""])[0]
 }
+
+output "aws_public_keypair_name" {
+    value = var.aws_public_keypair_name 
+}

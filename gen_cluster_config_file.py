@@ -18,10 +18,11 @@ data = {
   "eks_cluster_aws_iam_role_arn" : outputs['eks_cluster_aws_iam_role_arn']['value'],
   "eks_node_aws_iam_instance_profile_arn" : outputs['eks_node_aws_iam_instance_profile_arn']['value'],
   "eks_node_aws_iam_role_arn" : outputs['eks_node_aws_iam_role_arn']['value'],
+  "aws_public_keypair_name" : outputs['aws_public_keypair_name']['value'],
 }
 
 
-templateLoader = jinja2.FileSystemLoader(searchpath="./")
+templateLoader = jinja2.FileSystemLoader(searchpath="./_eks_configs/")
 templateEnv = jinja2.Environment(loader=templateLoader)
 CLUSTER_TEMPLATE_FILE = "cluster.yaml"
 NODEGROUP_SPOT_TEMPLATE_FILE = "nodes-spot.yaml"
@@ -32,20 +33,20 @@ cluster_conf_file = template_cluster.render(data)
 nodegroups_conf_file = template_nodegroup.render(data)
 
 # to save the results
-with open("cluster-final.yaml", "w") as fh:
+with open("./_eks_configs/cluster-final.yaml", "w") as fh:
     fh.write(cluster_conf_file)
 
 
 # to save the results
-with open("node-spot-final.yaml", "w") as fh:
+with open("./_eks_configs/node-spot-final.yaml", "w") as fh:
     fh.write(nodegroups_conf_file)
 
 
-os.system('eksctl create cluster --config-file=cluster-final.yaml')
+os.system('eksctl create cluster --config-file=./_eks_configs/cluster-final.yaml')
 
 os.system('aws eks --region us-east-1 update-kubeconfig --name lab-cluster')
 
-os.system('eksctl create nodegroup --config-file=node-spot-final.yaml')
+os.system('eksctl create nodegroup --config-file=./_eks_configs/node-spot-final.yaml')
 
 os.system('eksctl utils update-kube-proxy --cluster lab-cluster --region us-east-1 --approve')
 os.system('eksctl utils update-aws-node --cluster lab-cluster --region us-east-1 --approve')

@@ -24,6 +24,7 @@ O Laboratório surge na necessidade primaria de aprendizado e auxílio a comunid
             account_id = "0000000000"
             peer_vpc_id = "vpc-0000000"
             peer_region = "us-east-2"
+            aws_public_keypair_name = "keypair_name"
             
     - Criar um arquivo [backend.tf](https://www.terraform.io/docs/language/settings/backends/s3.html) (opcional - caso não exista sera gerado um arquivo de controle na máquina de execução)
 
