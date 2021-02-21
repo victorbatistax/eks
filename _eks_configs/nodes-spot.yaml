@@ -38,4 +38,4 @@ nodeGroups:
       instanceProfileARN: "{{ eks_node_aws_iam_instance_profile_arn }}"
       instanceRoleARN: "{{ eks_node_aws_iam_role_arn }}"
     securityGroups:
-      attachIDs: ["{{ eks_cluster_security_group_id }}"]
+      attachIDs: ["{{ node_sg_security_group_id }}"]

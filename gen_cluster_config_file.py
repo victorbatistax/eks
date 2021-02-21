@@ -8,7 +8,7 @@ with open("output_json_file.json") as json_file:
 
 data = {
   "eks_cluster_security_group_id" : outputs['eks_cluster_security_group_id']['value'],
-  "eks_cluster_security_group_id" : outputs['node_sg_security_group_id']['value'],
+  "node_sg_security_group_id" : outputs['node_sg_security_group_id']['value'],
   "private_subnets_a" : '{ id: ' + outputs['private_subnets']['value'][0] +  ' }',
   "private_subnets_b" : '{ id: ' + outputs['private_subnets']['value'][1] +  ' }',
   "public_subnets_a" : '{ id: ' + outputs['public_subnets']['value'][0] +  ' }',
