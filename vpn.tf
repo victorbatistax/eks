@@ -8,7 +8,7 @@ resource "aws_vpn_gateway" "vpn_gateway" {
 
 resource "aws_customer_gateway" "lab" {
   bgp_asn    = 65000
-  ip_address = "0.0.0.0"
+  ip_address = "172.83.124.10"
   type       = "ipsec.1"
 
   tags = {
